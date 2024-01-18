@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Discussion</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #292b2c;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #fff;
+            flex-direction: column;
+        }
+
+        .form-container {
+            background: #373a3c;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+        }
+
+        h2 {
+            color: #dee2e6;
+        }
+
+        input[type="text"], textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #555;
+            border-radius: 4px;
+            background-color: #444;
+            color: #fff;
+        }
+
+        input[type="submit"] {
+            background-color: #944882;
+            color: #fff;
+            cursor: pointer;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #773363;
+        }
+        .image-container {
+            width: 50%;
+            text-align: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            width: 50%;
+            max-width: 100%;
+            height: auto;
+
+        }
+        .button {
+            background-color: #b43030;
+            color: #fff;
+            cursor: pointer;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #940000;
+        }
+    </style>
+</head>
+<body>
+<div class="image-container">
+    <!-- Replace the text with the image -->
+    <img src="https://www.forumfinancial.com/wp-content/uploads/2021/03/Forum_PrimaryLogo_TransparentBackground_216ppi_large.png" alt="Forum Logo">
+</div>
+<div class="form-container">
+    <h2>Add Discussion</h2>
+    <form th:action="@{/discussion/add}" method="post">
+        <div>
+            <input type="text" name="title" placeholder="Title"/>
+        </div>
+        <div>
+            <textarea name="content" placeholder="Content"></textarea>
+        </div>
+        <div>
+            <input type="submit" value="Submit"/>
+            <a th:href="@{/admin/backdis}" class="button">Back to Discussions</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

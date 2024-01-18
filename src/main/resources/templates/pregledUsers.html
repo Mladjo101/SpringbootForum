@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manage Users</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #292b2c;
+            margin: 0;
+        }
+        .user-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .user-item {
+            background-color: #444;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .user-details {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            color:white;
+            font-size: 18px;
+        }
+        .status {
+            font-style: italic;
+        }
+        .button {
+            background-color: #944882;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #773363;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding:20px;
+            background-color: #1f2020;
+        }
+
+        .logo-container img {
+            height: 50px;
+        }
+        .main{
+            margin:20px;
+        }
+    </style>
+</head>
+<body>
+<div class="header-container">
+    <div class="logo-container">
+
+        <img src="https://www.forumfinancial.com/wp-content/uploads/2021/03/Forum_PrimaryLogo_TransparentBackground_216ppi_large.png" alt="Forum Logo">
+    </div>
+    <div>
+        <a th:href="@{/admin/backdis}" class="button">Back to Discussions</a>
+    </div>
+</div>
+
+<div class="main">
+<ul class="user-list">
+    <li th:each="user : ${users}" class="user-item">
+        <div class="user-details">
+            <strong th:text="'Username: ' + ${user.username}">Username</strong>
+            <br/>
+            <span class="status" th:text="'Status: ' + ${user.active ? 'Active' : 'Inactive'}"></span>
+        </div>
+        <a th:href="@{/admin/users/changeStatus/{id}(id=${user.id})}" class="button">Change Status</a>
+    </li>
+</ul>
+</div>
+</body>
+</html>

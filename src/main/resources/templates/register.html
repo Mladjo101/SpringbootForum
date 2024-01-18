@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #292b2c;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .main {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .image-container {
+            width: 50%;
+            text-align: center;
+            align-items: center;
+        }
+
+        .image-container img {
+            width: 50%;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .form-container {
+            background-color: #373a3c;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #dee2e6;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 1px solid #555;
+            border-radius: 4px;
+            background-color: #444;
+            color: #fff;
+        }
+
+        input[type="submit"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #0056b3;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #004494;
+        }
+        .sirina{
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+
+    <div class="image-container">
+        <!-- Replace the text with the image -->
+        <img src="https://www.forumfinancial.com/wp-content/uploads/2021/03/Forum_PrimaryLogo_TransparentBackground_216ppi_large.png" alt="Forum Logo">
+    </div>
+
+    <div class="sirina">
+    <div class="form-container">
+        <h2>Register</h2>
+        <form th:action="@{/register}" th:object="${user}" method="post">
+            <div>
+                <input type="text" th:field="*{username}" placeholder="Username"/>
+            </div>
+            <div>
+                <input type="password" th:field="*{password}" placeholder="Password"/>
+            </div>
+            <div>
+                <input type="submit" value="Register"/>
+            </div>
+        </form>
+    </div>
+    </div>
+</div>
+</body>
+</html>
